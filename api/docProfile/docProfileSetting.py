@@ -25,6 +25,7 @@ def docProfileSettings():
         specialization = docProfileApi['specialization']
         education = docProfileApi['education']
         experience = docProfileApi['experience']
+        pmc = docProfileApi['pmc']
         # image = request.files['image']
         print("adil")
 
@@ -42,7 +43,7 @@ def docProfileSettings():
             profile_data = Profile(user_id=current_user.id, firstName=firstName, lastName=lastName, phoneNo=phoneNo,
                                    gender=gender, dob=dob, biography=biography,
                                    address=address, city=city, state=state, country=country, postalCode=postalCode,
-                                   pricing=pricing)
+                                   pricing=pricing, pmc=pmc)
             db.session.add(profile_data)
             db.session.commit()
 

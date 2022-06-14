@@ -16,6 +16,7 @@ class Profile(db.Model):
     country = db.Column(db.String(80), default=None)
     postalCode = db.Column(db.String(80), default=None)
     pricing = db.Column(db.String(80), default=None)
+    pmc = db.Column(db.String(80), default=None)
 
 
 

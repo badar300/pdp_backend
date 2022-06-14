@@ -29,3 +29,5 @@ from api.signup import *
 from api.login import *
 from api.docProfile.docProfileSetting import *
 from api.Doctime_Scheduling.schedule_time import *
+from api.socialMedia.socialMediaApi import *
+from api.changePassword.changePasswordApi import *

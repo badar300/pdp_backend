@@ -7,3 +7,4 @@ from models.schedule_timings.schedule_timings import *
 from models.user import *
 from models.docProfileSetting.review import *
 from models.imageModel.userImage import *
+from models.socialMedia.socialMedia import *
