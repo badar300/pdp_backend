@@ -1,8 +1,9 @@
-from models import Profile, Image
 from flask_login import current_user
 from flask import request, make_response
 from werkzeug.utils import secure_filename
 from app import app, db
+from models import Profile, Image
+
 import os
 
 

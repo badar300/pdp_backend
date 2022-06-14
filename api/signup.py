@@ -6,7 +6,7 @@ from app import db, app
 from models import User
 
 
-@app.route('/signup', methods=['POST'])
+@app.route('/register', methods=['POST'])
 def signup():
     if request.method == 'POST':
         signupAPI = request.get_json()
@@ -15,7 +15,7 @@ def signup():
         password = signupAPI['password']
         hashed = pbkdf2_sha256.hash(password)
         phoneNo = signupAPI['phone']
-        role = signupAPI['role']
+        # role = signupAPI['role']
         checkEmail = User.query.filter_by(email=email).first()
         checkphone = User.query.filter_by(phoneNo=phoneNo).first()
 
@@ -25,7 +25,7 @@ def signup():
             if checkEmail == None:
                 if checkphone == None:
                     newUser = User(userName=userName, email=email,
-                                   password=hashed, phoneNo=phoneNo, role=role, isProfileCompleted=False)
+                                   password=hashed, phoneNo=phoneNo, role="doctor", isProfileCompleted=False)
                     db.session.add(newUser)
                     db.session.commit()
 
