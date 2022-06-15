@@ -5,4 +5,5 @@ from models.docProfileSetting.service import *
 from models.docProfileSetting.specialization import *
 from models.schedule_timings.schedule_timings import *
 from models.imageModel.userImage import *
+from models.socialMedia.socialMedia import *
 from models.user import *

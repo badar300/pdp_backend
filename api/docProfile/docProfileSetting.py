@@ -11,6 +11,7 @@ def docProfileSettings():
         docProfileApi = request.get_json()
         firstName = docProfileApi['firstName']
         lastName = docProfileApi['lastName']
+        user_id=docProfileApi['userId']
         phoneNo = docProfileApi['phoneNo']
         gender = docProfileApi['gender']
         dob = docProfileApi['dob']
@@ -25,12 +26,12 @@ def docProfileSettings():
         specialization = docProfileApi['specialization']
         education = docProfileApi['education']
         experience = docProfileApi['experience']
+        pmc = docProfileApi['pmc']
         # image = request.files['image']
         print("adil")
 
-        getData = Profile.query.filter(Profile.phoneNo == phoneNo).first()
-        print(current_user.id)
-        user = User.query.filter(User.id == current_user.id).first()
+        getData = Profile.query.filter(Profile.user_id == user_id).first()
+        user = User.query.filter(User.id == user_id).first()
 
         if getData != None:
             return make_response("Record already added!")
@@ -39,10 +40,10 @@ def docProfileSettings():
             user.role = "Doctor"
             db.session.add(user)
             db.session.commit()
-            profile_data = Profile(user_id=current_user.id, firstName=firstName, lastName=lastName, phoneNo=phoneNo,
+            profile_data = Profile(user_id=user_id, firstName=firstName, lastName=lastName, phoneNo=phoneNo,
                                    gender=gender, dob=dob, biography=biography,
                                    address=address, city=city, state=state, country=country, postalCode=postalCode,
-                                   pricing=pricing)
+                                   pricing=pricing, pmc=pmc)
             db.session.add(profile_data)
             db.session.commit()
 

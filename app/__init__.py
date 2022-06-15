@@ -12,7 +12,7 @@ app.config['UPLOAD_FOLDER'] = 'images'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app = Flask(__name__, static_url_path='',
             static_folder='images')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:badar@localhost:3306/pdpback'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:adil2210@localhost:3307/fyp_pdp'
 app.config['SECRET_KEY'] = 'iamsecret'
 db = SQLAlchemy(app)
 
@@ -29,3 +29,5 @@ from api.signup import *
 from api.login import *
 from api.docProfile.docProfileSetting import *
 from api.Doctime_Scheduling.schedule_time import *
+from api.socialMedia.socialMediaApi import *
+from api.changePassword.changePasswordApi import *
