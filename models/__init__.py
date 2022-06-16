@@ -6,4 +6,5 @@ from models.docProfileSetting.specialization import *
 from models.schedule_timings.schedule_timings import *
 from models.imageModel.userImage import *
 from models.socialMedia.socialMedia import *
+from models.doctor_account import *
 from models.user import *

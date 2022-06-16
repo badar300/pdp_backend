@@ -12,7 +12,7 @@ app.config['UPLOAD_FOLDER'] = 'images'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app = Flask(__name__, static_url_path='',
             static_folder='images')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:adil2210@localhost:3307/fyp_pdp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:badar@localhost:3306/fyp'
 app.config['SECRET_KEY'] = 'iamsecret'
 db = SQLAlchemy(app)
 

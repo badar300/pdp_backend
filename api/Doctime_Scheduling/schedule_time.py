@@ -1,6 +1,5 @@
 from flask import *
 from flask_login import current_user
-from passlib.hash import pbkdf2_sha256
 from app import db,app
 from models import Schedule
 
