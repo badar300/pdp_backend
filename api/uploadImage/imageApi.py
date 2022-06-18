@@ -1,5 +1,5 @@
-from models import Profile, Image,User
-from flask import request, make_response,Flask
+from models import Profile, Image, User
+from flask import request, make_response, send_from_directory
 from werkzeug.utils import secure_filename
 from app import app, db
 import os
@@ -15,7 +15,7 @@ def image():
     if image:
         paymentFilename = secure_filename(image.filename)
         print(paymentFilename)
-        image.save(os.path.join('/Users/Adil Nisar/PycharmProjects/PdpBackend/pdp_backend/Images', paymentFilename))
+        image.save(os.path.join('/Users/Adil Nisar/PycharmProjects/PdpBackend/pdp_backend/static/Images', paymentFilename))
         imagePath = ('Images/' + paymentFilename)
 
         imageData = Image(user_id=user.id, imagePath=imagePath)
@@ -24,13 +24,9 @@ def image():
 
         return make_response("added"), 200
 
-@app.route('/getImage', methods=['GET'])
-def getImageApi():
-    if request.method() == 'GET':
-        getImage = request.get_json()
-        userId = getImage['userId']
-        image = Image.query.filter(Image.user_id == userId).first()
-        newimg = io.BytesIO(image.imagePath)
-        img = image(newimg)
-        print(img)
-        return Flask.redirect(Flask.url_for('PATH', filename=img), code=301)
+
+@app.route('/getImage/<int:idd>', methods=['GET'])
+def getImageApi(idd):
+    image = Image.query.filter(Image.user_id == idd).first()
+    return send_from_directory(
+        directory=app.config['UPLOAD_FOLDER'], path=image.imagePath)
